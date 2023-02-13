@@ -20,11 +20,11 @@ Go Ahead and create (use use an existing) your VNETs for this lab. Make sure whe
 
 For each VNET, we'll need the following subnets defined:
 
-HUB-VNET:
-AzureFirewallSubnet;
+HUB-VNET:<br>
+AzureFirewallSubnet<br>
 AzureFirewallManagementSubnet
 
-SPOKE-VNET:
+SPOKE-VNET:<br>
 PepSubnet (for our private endpoint)
 
 Once your subnets are in place, go ahead and deploy the Azure Firewall of your choice. Again, I used the basic SKU to keep costs down, but any will work. After your firewall is created, let's create an additional public IP that we'll use specifically for SFTP. When you create this public IP, go ahead and give it a DNS name label so we can address the SFTP endpoint over a public name of our choice.
@@ -47,14 +47,14 @@ Once this is all done, let's create a private endpoint for the Blob w/SFTP. You 
 
 Now, let's create the DNAT rule on the Azure Firewall to do the necessary NAT from the public IP to the back-end SFTP storage target. In my example below, the rule breakdown is as follows:
 
-Source type: IP Address
-Source: <my home pulbic IP address> (I just grabbed my source address using 'Whats my IP' in a Google search bar, but any method you want to use is fine) My goal was to ensure I was only allowing select source IPs (from the Internet) hit my SFTP endpoint.
-Protocol: TCP
-Destination Ports: 22
-Destination Type: IP Address
-Destination: 20.81.84.171 (This is the public IP I created on my firewall specifically for SFTP)
-Translated Type: FQDN
-Translated address or FQDN: rnusftpendpoint.blob.core.windows.net (this is the public name of my blob storage account. the DNS recursion process from within the firewall will ultimately translate this to rnusftpendpoint.privatelink.blob.core.windows.net since we have a private endpoint configured)
+Source type: IP Address<br>
+Source: <my home pulbic IP address> (I just grabbed my source address using 'Whats my IP' in a Google search bar, but any method you want to use is fine) My goal was to ensure I was only allowing select source IPs (from the Internet) hit my SFTP endpoint.<br>
+Protocol: TCP<br>
+Destination Ports: 22<br>
+Destination Type: IP Address<br>
+Destination: 20.81.84.171 (This is the public IP I created on my firewall specifically for SFTP)<br>
+Translated Type: FQDN<br>
+Translated address or FQDN: rnusftpendpoint.blob.core.windows.net (this is the public name of my blob storage account. the DNS recursion process from within the firewall will ultimately translate this to rnusftpendpoint.privatelink.blob.core.windows.net since we have a private endpoint configured)<br>
 Translated Port: 22
 
 <img width="541" alt="image" src="https://user-images.githubusercontent.com/15015304/218507690-ad48c238-9520-4efa-83c1-3840c5ef1a05.png">
@@ -63,7 +63,7 @@ Translated Port: 22
 
 Now, we have all the required services in place and configured to support exteranl SFTP. The next thing left to do is test from our SFTP client. This is a pretty straightforward step if you've used SFTP before -- you'll just need to supply it with your remote hostname and username. Below is the format you'll need to use when doing this:
   
-Remote host: rnusftp.eastus.cloudapp.azure.com (You can customize this record if you wish to support a vanity name, but I just used the default suffix)
+Remote host: rnusftp.eastus.cloudapp.azure.com (You can customize this record if you wish to support a vanity name, but I just used the default suffix)<br>
 Username: rnusftpendpoint.testuser (this format is important -- it should be constructed using %storageAccountName%.%LocalFtpUserName%
   
 
