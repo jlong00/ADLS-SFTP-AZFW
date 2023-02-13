@@ -5,7 +5,7 @@ For those folks who work in highly regulated industries(or just have tight secur
 
 A simple illustration of what we're building:
 
-<img width="731" alt="image" src="https://user-images.githubusercontent.com/15015304/218503479-8e761bcf-5e52-40ee-a423-9a90bdcba94f.png">
+<img width="726" alt="image" src="https://user-images.githubusercontent.com/15015304/218517798-408d688e-74b2-4815-a29e-b4e1b2930e28.png">
 
 Below are the services we'll use for this sample:
 
