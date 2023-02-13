@@ -21,7 +21,7 @@ Go Ahead and create (use use an existing) your VNETs for this lab. Make sure whe
 For each VNET, we'll need the following subnets defined:
 
 HUB-VNET:
-AzureFirewallSubnet
+AzureFirewallSubnet;
 AzureFirewallManagementSubnet
 
 SPOKE-VNET:
