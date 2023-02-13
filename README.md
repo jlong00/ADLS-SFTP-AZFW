@@ -63,7 +63,7 @@ Translated Port: 22
 
 Now, we have all the required services in place and configured to support exteranl SFTP. The next thing left to do is test from our SFTP client. This is a pretty straightforward step if you've used SFTP before -- you'll just need to supply it with your remote hostname and username. Below is the format you'll need to use when doing this:
   
-Remote host: rnusftp.eastus.cloudapp.azure.com (You can customize this record if you wish to support a vanity name, but I just used the default suffix)<br>
+Remote host: rnusftp.eastus.cloudapp.azure.com (This is the DNS name we appended to our SFTP public IP on the firewall. You can customize this record if you wish to support a vanity name, but I just used the default suffix)<br>
 Username: rnusftpendpoint.testuser (this format is important -- it should be constructed using %storageAccountName%.%LocalFtpUserName%
   
 
