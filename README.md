@@ -9,11 +9,11 @@ A simple illustration of what we're building:
 
 Below are the services we'll use for this sample:
 
-Azure Firewall (I used the Basic SKU in my lab to keep costs down, but any SKU will work)
-An additional public IP to act as the SFTP VIP on my firewall
-Two VNETs (This solution uses a basic hub/spoke network example)
-Blob Storage Account (+ADLS/HNS & SFTP Enabled)
-Private Endpoint (for Blob)
+Azure Firewall (I used the Basic SKU in my lab to keep costs down, but any SKU will work)<br>
+An additional public IP to act as the SFTP VIP on my firewall<br>
+Two VNETs (This solution uses a basic hub/spoke network example)<br>
+Blob Storage Account (+ADLS/HNS & SFTP Enabled)<br>
+Private Endpoint (for Blob)<br>
 Private DNS Zone (to faciliate the private endpoint name resolution)
 
 Go Ahead and create (use use an existing) your VNETs for this lab. Make sure when you create each (Hub and Spoke) that you ensure you don't use overlapping IP   addresses, as we'll need to use VNET peering to connect the two. Once both are created, peer the two VNETs together in preparation for our following steps.
